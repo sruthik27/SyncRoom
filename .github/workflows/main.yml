@@ -3,10 +3,10 @@ name: Cypress Tests
 on:
   push:
     branches:
-      - main  # Adjust branch name as per your setup
+      - main  # Adjust branch name
   pull_request:
     branches:
-      - main  # Trigger tests on pull requests to the main branch
+      - main
 
 jobs:
   test:
@@ -19,14 +19,24 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '21' # Use the Node.js version compatible with your project
+        node-version: '21' # Ensure compatibility
 
     - name: Install Dependencies
       run: npm install
 
+    - name: Start Development Server
+      run: npm run dev &
+      env:
+        CI: true
+
+    - name: Wait for Server to Start
+      uses: jakejarvis/wait-for-it-action@v1
+      with:
+        url: 'http://localhost:5173'
+        timeout: 60  # Adjust timeout if needed
+
     - name: Run Cypress Tests
       uses: cypress-io/github-action@v5
       with:
-        record: false # Set to true if using Cypress Dashboard
-        headless: true
-
+        record: false
+        config-file: cypress.config.js  # Ensure this matches your config file
