@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap');.header-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    color: #9445be;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: neonGlow 1.5s infinite alternate;
+}
+
+@media (max-width: 768px) {
+    .header-text {
+        font-size: 1.2rem;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 0px #c084fc, 0 0 1px #c084fc, 0 0 2px #c084fc, 0 0 3px #c084fc;
+    }
+    100% {
+        text-shadow: 0 0 1px #e879f9, 0 0 2px #e879f9, 0 0 3px #e879f9, 0 0 4px #e879f9;
+    }
+}
+
+
+.youtube-player-wrapper {
+    pointer-events: none;
+}
+
+.removed-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8d7da;
+}
+
+.removed-message {
+    font-size: 2rem;
+    color: #721c24;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .youtube-player-wrapper .youtube-player {
+        height: 300px; /* Adjust the height as needed */
+    }
+}
+
+@media (max-width: 768px) {
+    .youtube-player-wrapper .youtube-player {
+        height: 200px; /* Adjust the height as needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .youtube-player-wrapper .youtube-player {
+        height: 150px; /* Adjust the height as needed */
+    }
+}
+
+@keyframes clickEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-click-effect {
+    animation: clickEffect 0.2s ease-in-out;
+}
+
+@keyframes slide-out {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(-100%); }
+}
+.song-item.animate-slide-out {
+    animation: slide-out 0.4s ease forwards;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse 2s infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee linear infinite;
+    animation-play-state: running;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+@keyframes glowingBorder {
+    0% {
+        box-shadow: 0 0 2px #9b59b6, 0 0 4px #9b59b6, 0 0 6px #9b59b6, 0 0 8px #9b59b6, 0 0 10px #9b59b6, 0 0 12px #9b59b6, 0 0 14px #9b59b6;
+    }
+    50% {
+        box-shadow: 0 0 4px #8e44ad, 0 0 8px #8e44ad, 0 0 12px #8e44ad, 0 0 16px #8e44ad, 0 0 20px #8e44ad, 0 0 24px #8e44ad, 0 0 28px #8e44ad;
+    }
+    100% {
+        box-shadow: 0 0 2px #9b59b6, 0 0 4px #9b59b6, 0 0 6px #9b59b6, 0 0 8px #9b59b6, 0 0 10px #9b59b6, 0 0 12px #9b59b6, 0 0 14px #9b59b6;
+    }
+}
+
+.glowing-border {
+    border: 2px solid #9b59b6;
+    animation: glowingBorder 2s infinite;
+}
+
+@keyframes musicPlayingBorder {
+    0%, 100% {
+        box-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 15px #9b59b6, 0 0 20px #9b59b6;
+    }
+    50% {
+        box-shadow: 0 0 10px #8e44ad, 0 0 20px #8e44ad, 0 0 30px #8e44ad, 0 0 40px #8e44ad;
+    }
+}
+
+.music-playing-border {
+    border: 2px solid #9b59b6;
+    border-radius: 50%;
+    padding: 10px;
+    animation: musicPlayingBorder 2s infinite;
+}
+
+@keyframes inpulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(155, 89, 182, 0.5), 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(142, 68, 173, 0.75), 0 0 30px rgba(142, 68, 173, 0.75);
+    }
+}
+
+.inpulse-animation {
+    animation: pulse 2s infinite;
+}
+
+.neon-text {
+    color: #fff;
+    text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px rgb(168, 85, 247),
+            0 0 82px rgb(168, 85, 247),
+            0 0 92px rgb(168, 85, 247),
+            0 0 102px rgb(168, 85, 247),
+            0 0 151px rgb(168, 85, 247);
+    background: linear-gradient(
+            to right,
+            #c084fc,
+            #e879f9,
+            #c084fc
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+@keyframes neonFlicker {
+    0%, 100% { opacity: 1; }
+    41% { opacity: 1; }
+    42% { opacity: 0.8; }
+    43% { opacity: 1; }
+    45% { opacity: 0.3; }
+    46% { opacity: 1; }
+    50% { opacity: 0.9; }
+    55% { opacity: 1; }
+    56% { opacity: 0.85; }
+    57% { opacity: 1; }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    41.99% { opacity: 1; }
+    42% { opacity: 0.8; }
+    43% { opacity: 1; }
+    45% { opacity: 0.3; }
+    45.5% { opacity: 1; }
+    50% { opacity: 0.9; }
+    54.99% { opacity: 1; }
+    55% { opacity: 0.9; }
+    57% { opacity: 1; }
+}
+
+@keyframes fastFlicker {
+    0%, 100% { opacity: 1; }
+    20.99% { opacity: 1; }
+    21% { opacity: 0.9; }
+    21.5% { opacity: 1; }
+    22% { opacity: 0.8; }
+    22.5% { opacity: 1; }
+    23% { opacity: 0.9; }
+    23.5% { opacity: 1; }
+}
+
+.animate-flicker {
+    text-shadow: 0 0 4px rgba(168, 85, 247, 0.4), 0 0 8px rgba(168, 85, 247, 0.2);
+    animation: flicker 5s linear infinite;
+    font-family: 'Pacifico', cursive;
+}
+
+.animate-fast-flicker {
+    text-shadow: 0 0 4px rgba(236, 72, 153, 0.4), 0 0 8px rgba(236, 72, 153, 0.2);
+    animation: fastFlicker 3s linear infinite;
+}
