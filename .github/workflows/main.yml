@@ -1,0 +1,32 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main  # Adjust branch name as per your setup
+  pull_request:
+    branches:
+      - main  # Trigger tests on pull requests to the main branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '21' # Use the Node.js version compatible with your project
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Cypress Tests
+      uses: cypress-io/github-action@v5
+      with:
+        record: false # Set to true if using Cypress Dashboard
+        headless: true
+
