@@ -35,8 +35,5 @@ jobs:
     - name: Wait for Server to Start
       run: npx wait-on http://localhost:5173
 
-    - name: Run Cypress Tests
-      uses: cypress-io/github-action@v5
-      with:
-        record: false
-        config-file: cypress.config.ts
+    - name: Run Cypress Component Tests
+      run: npx cypress run --component
