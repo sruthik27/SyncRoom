@@ -9,6 +9,6 @@ module.exports = defineConfig({
       framework: "react",
       bundler: "vite",
     },
-    specPattern: "cypress/component/**/*.cy.{js,jsx,ts,tsx}",
+    specPattern: "src/components/**/*.cy.{js,jsx,ts,tsx}",
   },
 });
