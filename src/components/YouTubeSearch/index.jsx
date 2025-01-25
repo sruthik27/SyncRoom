@@ -64,7 +64,7 @@ const YouTubeSearch = ({ onSubmit }) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://d6nsmmp64k.execute-api.ap-south-1.amazonaws.com/default/YouTubeSearcher?songName=${encodeURIComponent(debouncedSearch)}`,
+        `${import.meta.env.VITE_YOUTUBE_SEARCHER_API}?songName=${encodeURIComponent(debouncedSearch)}`,
       );
       const data = await response.json();
       setSearchResults(data.results || []);

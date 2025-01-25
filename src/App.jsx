@@ -194,7 +194,7 @@ const MusicView = ({
   const fetchRoomMembers = async () => {
     try {
       const response = await fetch(
-        `https://yg1tuhph03.execute-api.ap-south-1.amazonaws.com/v1/GetRoomMembers?roomId=${roomId}`,
+        `${import.meta.env.VITE_GET_ROOM_MEMBERS_API}?roomId=${roomId}`,
       );
       const data = await response.json();
       const usernames = data.userIds;
@@ -266,7 +266,7 @@ const MusicView = ({
 
         // Update room's song list
         const response = await fetch(
-          `https://5bvu9szmfd.execute-api.ap-south-1.amazonaws.com/v1/AddSongToRoom?roomId=${roomId}&songName=${fileName}&songUrl=${encodeURIComponent(url)}&userName=${userName}`,
+          `${import.meta.env.VITE_ADD_SONG_TO_ROOM_API}?roomId=${roomId}&songName=${fileName}&songUrl=${encodeURIComponent(url)}&userName=${userName}`,
         );
         const result = await response.json();
         if (result.message === "already_exists") {
@@ -323,8 +323,8 @@ const MusicView = ({
     //       const songUrl = `https://www.youtube.com/watch?v=${video.videoId}`;
     //
     //       const response = await fetch(
-    //         `https://5bvu9szmfd.execute-api.ap-south-1.amazonaws.com/v1/AddSongToRoom?roomId=${roomId}&songName=${encodeURIComponent(songName)}&songUrl=${encodeURIComponent(songUrl)}&userName=${userName}`,
-    //       );
+    //       `${import.meta.env.VITE_ADD_SONG_TO_ROOM_API}?roomId=${roomId}&songName=${encodeURIComponent(songName)}&songUrl=${encodeURIComponent(url)}&userName=${userName}`,
+    //     );
     //       const result = await response.json();
     //       if (result.message === "already_exists") {
     //         setSnackbarMessage("Song already exists in room");
@@ -361,7 +361,7 @@ const MusicView = ({
       // const data = await res.json();
       const songName = name.split("|")[0].trim();
       const response = await fetch(
-        `https://5bvu9szmfd.execute-api.ap-south-1.amazonaws.com/v1/AddSongToRoom?roomId=${roomId}&songName=${encodeURIComponent(songName)}&songUrl=${encodeURIComponent(url)}&userName=${userName}`,
+        `${import.meta.env.VITE_ADD_SONG_TO_ROOM_API}?roomId=${roomId}&songName=${encodeURIComponent(songName)}&songUrl=${encodeURIComponent(url)}&userName=${userName}`,
       );
       const result = await response.json();
       if (result.message === "already_exists") {
@@ -645,7 +645,7 @@ function App() {
     if (roomId && userName) {
       console.log("really connecting");
       wsRef.current = new WebSocket(
-        `wss://oftfeteezj.execute-api.ap-south-1.amazonaws.com/production/?roomId=${roomId}&userId=${userName}`,
+        `${import.meta.env.VITE_WEBSOCKET_URL}?roomId=${roomId}&userId=${userName}`,
       );
       wsRef.current.onopen = () => {
         console.log("WebSocket Connected");
@@ -669,7 +669,7 @@ function App() {
           storedRoomId.trim()
         ) {
           const response = await fetch(
-            `https://kl46a7vu1m.execute-api.ap-south-1.amazonaws.com/V1/DoesRoomExist?roomId=${storedRoomId}`,
+            `${import.meta.env.VITE_DOES_ROOM_EXIST_API}?roomId=${storedRoomId}`,
             {
               method: "GET",
               headers: {
@@ -730,7 +730,7 @@ function App() {
 
       try {
         const response = await fetch(
-          `https://ea3ya32d5l.execute-api.ap-south-1.amazonaws.com/default/isNameAvailable?roomId=${roomId}&userId=${userName}`,
+          `${import.meta.env.VITE_IS_NAME_AVAILABLE_API}?roomId=${roomId}&userId=${userName}`,
         );
         const data = await response.json();
 
@@ -766,7 +766,7 @@ function App() {
       if (!roomId.trim()) return;
       try {
         const response = await fetch(
-          `https://kl46a7vu1m.execute-api.ap-south-1.amazonaws.com/V1/DoesRoomExist?roomId=${roomId}`,
+          `${import.meta.env.VITE_DOES_ROOM_EXIST_API}?roomId=${roomId}`,
           {
             method: "GET",
             headers: {

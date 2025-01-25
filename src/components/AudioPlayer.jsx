@@ -84,7 +84,7 @@ const AudioPlayer = ({
   const fetchRoomState = async () => {
     try {
       const response = await fetch(
-        `https://lu84xxokwg.execute-api.ap-south-1.amazonaws.com/default/RoomStatus?roomId=${roomId}`,
+        `${import.meta.env.VITE_ROOM_STATUS_API}?roomId=${roomId}`,
       );
       const data = await response.json();
       console.log(data);
@@ -165,7 +165,7 @@ const AudioPlayer = ({
           if (retryCount < 15) {
             setTimeout(() => {
               const newWs = new WebSocket(
-                `wss://oftfeteezj.execute-api.ap-south-1.amazonaws.com/production/?roomId=${roomId}&userId=${userName}`,
+                `${import.meta.env.VITE_WEBSOCKET_URL}?roomId=${roomId}&userId=${userName}`,
               );
               wsRef.current = newWs;
               setupWebSocketHandlers(newWs);
@@ -226,7 +226,7 @@ const AudioPlayer = ({
       if (data.count !== roomSongsCount) {
         try {
           const response = await fetch(
-            `https://6qmvsw8tgd.execute-api.ap-south-1.amazonaws.com/v1/GetRoomSongs?roomId=${roomId}`,
+            `${import.meta.env.VITE_GET_ROOM_SONGS_API}?roomId=${roomId}`,
           );
           const newSongs = await response.json();
           setSongs(newSongs.sort((a, b) => a.time - b.time));
@@ -681,8 +681,7 @@ const AudioPlayer = ({
 
   // Remove a song from the room
   async function triggerRemoveSongFromRoom(roomId, songUrl) {
-    const url =
-      "https://2vtd71x7m7.execute-api.ap-south-1.amazonaws.com/default/RemoveSongFromRoom";
+    const url = import.meta.env.VITE_REMOVE_SONG_API;
 
     try {
       const response = await fetch(url, {
