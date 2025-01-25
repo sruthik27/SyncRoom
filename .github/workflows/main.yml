@@ -24,9 +24,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
       - name: Start Development Server
         run: npm run dev &
         env:
@@ -36,4 +33,4 @@ jobs:
         run: npx wait-on http://localhost:5173
 
       - name: Run Cypress Component Tests
-        run: npx cypress run
+        run: npx cypress run --component
