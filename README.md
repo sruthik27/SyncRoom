@@ -33,7 +33,7 @@ The backend architecture is built entirely on AWS for high performance and relia
 
 ## 🌐 Live Demo  
 
-Experience Sync Room live at: [Sync Room App](https://yourdomain.com](https://www.syncroomnow.com/))
+Experience Sync Room live at: [Sync Room App](https://www.syncroomnow.com/)
 
 ---
 
@@ -48,7 +48,7 @@ Experience Sync Room live at: [Sync Room App](https://yourdomain.com](https://ww
 ## 📧 Contact  
 
 Have questions or feedback? Feel free to reach out:  
-- **LinkedIn**: [Your Name](https://www.linkedin.com/in/sruthik-issac-5b9119198/)  
+- **LinkedIn**: [Sruthik](https://www.linkedin.com/in/sruthik-issac-5b9119198/)  
 - **Email**: sruthik2016@gmail.com 
 
 ---
