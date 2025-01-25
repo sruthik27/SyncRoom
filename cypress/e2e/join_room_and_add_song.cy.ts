@@ -44,7 +44,7 @@ describe("Room Creation and Joining Flow", () => {
     cy.getByTestId("search-input").type("Blue");
     cy.intercept(
       "GET",
-      "https://d6nsmmp64k.execute-api.ap-south-1.amazonaws.com/default/YouTubeSearcher?songName=Blue",
+      `https://d6nsmmp64k.execute-api.ap-south-1.amazonaws.com/default/YouTubeSearcher?songName=Blue`,
     ).as("getSearchResults");
     cy.wait("@getSearchResults");
 
