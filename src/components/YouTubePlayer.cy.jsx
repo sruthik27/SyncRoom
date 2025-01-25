@@ -1,5 +1,5 @@
 import YouTubePlayer from "./YouTubePlayer";
-import { mount } from "cypress/react18";
+import { mount } from "cypress/react";
 
 describe("YouTubePlayer", () => {
   let onReady;

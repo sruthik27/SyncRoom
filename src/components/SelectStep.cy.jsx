@@ -1,5 +1,5 @@
 import SelectStep from "./SelectStep";
-import { mount } from "cypress/react18";
+import { mount } from "cypress/react";
 
 describe("SelectStep", () => {
   let onSelect;

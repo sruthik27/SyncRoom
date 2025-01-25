@@ -1,5 +1,5 @@
 import InfoPopup from "./InfoPopup";
-import { mount } from "cypress/react18";
+import { mount } from "cypress/react";
 
 describe("InfoPopup", () => {
   let onClose;

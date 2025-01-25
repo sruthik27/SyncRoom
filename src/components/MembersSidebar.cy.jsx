@@ -1,5 +1,5 @@
 import MembersSidebar from "./MembersSidebar";
-import { mount } from "cypress/react18";
+import { mount } from "cypress/react";
 
 describe("MembersSidebar", () => {
   let onRemoveMember;

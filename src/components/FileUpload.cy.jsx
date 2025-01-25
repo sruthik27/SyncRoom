@@ -1,5 +1,5 @@
 import FileUpload from "./FileUpload";
-import { mount } from "cypress/react18";
+import { mount } from "cypress/react";
 import "cypress-file-upload";
 
 describe("FileUpload", () => {
