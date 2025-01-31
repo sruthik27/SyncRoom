@@ -11,7 +11,7 @@
     "cytest": "npx cypress run --component && npx cypress run --e2e"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.675.0",
+    "@aws-sdk/client-s3": "^3.726.0",
     "@aws-sdk/credential-provider-cognito-identity": "^3.675.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
