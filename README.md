@@ -20,58 +20,7 @@ Sync Room is an innovative app built using **AWS Cloud Architecture** to provide
 
 ### Backend (AWS-Powered)  
 The backend architecture is built entirely on AWS for high performance and reliability. Below is a diagram representing the architecture:
-```mermaid
-graph TD;
-
-    subgraph AWS Cloud
-        subgraph Frontend Hosting
-            Route53[Route 53 - Custom Domain] -->|DNS Resolution| CloudFront[CloudFront - CDN]
-            CloudFront -->|Distributes| S3[S3 - Frontend Hosting]
-            User[User] -->|Access UI| Route53
-        end
-
-        subgraph API & Backend
-            User -->|API Calls| API_Gateway[API Gateway]
-            API_Gateway -->|Triggers| Lambda_Functions[Lambda Functions]
-            Lambda_Functions -->|Read/Write| DynamoDB[(DynamoDB + DAX)]
-            Lambda_Functions -->|Logs & Metrics| CloudWatch[CloudWatch]
-        end
-
-        subgraph Real-Time Sync
-            WebSocket[WebSocket API Gateway] --> WebSocket_Lambda[Lambda for Sync Logic]
-            WebSocket_Lambda -->|Update Sync Status| DynamoDB
-        end
-
-        subgraph Playback Management
-            PlaybackStateTable[MusicRoomPlaybackState Table] -->|Track State| Lambda_Functions
-            RoomSongsTable[MusicRoomSongs Table] -->|Manage Songs| Lambda_Functions
-            ConnectionsTable[MusicRoomConnections Table] -->|Track Users| Lambda_Functions
-        end
-
-        subgraph Scheduled Cleanup
-            EventBridge[EventBridge Scheduler] -->|Triggers Cleanup Lambda| CleanupLambda[Lambda - Room Cleanup]
-            CleanupLambda -->|Removes Inactive Rooms| DynamoDB
-        end
-
-        subgraph Monitoring
-            CloudWatch -->|Logs & Metrics| CloudWatch_Dashboard[CloudWatch Dashboard]
-        end
-
-        API_Gateway -->|Serve UI| CloudFront
-    end
-
-    User -->|Frontend Requests| API_Gateway
-    User -->|Real-Time Playback Sync| WebSocket
-
-
-
-#### Key Services Used:  
-- **Amazon S3**: For static asset storage.  
-- **API Gateway**: To manage HTTP and WebSocket requests.  
-- **Lambda Functions**: To handle backend logic.  
-- **DynamoDB with DAX**: For fast and efficient database operations.  
-- **CloudWatch**: For real-time monitoring and metrics.  
-
+![Sync Room Backend Architecture](syncroom_backend_architecture.png)
 ---
 
 ## 🌐 Live Demo  
